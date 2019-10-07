@@ -4,13 +4,13 @@ KNN二分类算法——说明文档
 
 代码仅调用numpy库实现
 
-![img](F:\机器学习框架\第一次竞赛\1.jpg)
+![img](1.jpg)
 
  
 
 **1.**  函数def init_data()的作用是导入和初始化数据
 
-![img](F:\机器学习框架\第一次竞赛\2.jpg)
+![img](2.jpg)
 
 （1）np.loadtxt(filepath，delimiter=’,’)读取CSV文件，filepath为文件路径，delimiter用于加载文档分隔符。
 
@@ -34,11 +34,11 @@ classLables = classLables.ravel()   #ravel()对classLables进行降维，使其�
 
 2.函数def classify(X,dataMatIn,classlabels,k)用于对测试集数据进行分类
 
-![img](F:\机器学习框架\第一次竞赛\3.jpg)
+![img](3.jpg)
 
 （1）      采用欧拉距离计算测试集单个样本与训练集每个样本间的距离
 
-![img](F:\机器学习框架\第一次竞赛\4.jpg)
+![img](4.jpg)
 
 distances=(((dataMatIn-X)**2).sum(axis=1))**0.5
 
@@ -88,7 +88,7 @@ sortedDistances=distances.argsort()
 
 设绿色为待分类的样本，设置近邻数为K：
 
-![img](F:\机器学习框架\第一次竞赛\5.jpg)
+![img](5.jpg)
 
 如果K=3，绿色圆点的最近的3个邻居是2个红色小三角形和1个蓝色小正方形，少数从属于多数，基于统计的方法，判定绿色的这个待分类点属于红色的三角形一类。
 
@@ -192,4 +192,4 @@ f.close()
 
 
 
-![1570449150904](F:\机器学习框架\第一次竞赛\6.png)
+![1570449150904](6.png)
