@@ -4,13 +4,13 @@ KNN二分类算法——说明文档
 
 代码仅调用numpy库实现
 
-![img](1.jpg)
+![img](图片/1.jpg)
 
  
 
 **1.**  函数def init_data()的作用是导入和初始化数据
 
-![img](2.jpg)
+![img](图片/2.jpg)
 
 （1）np.loadtxt(filepath，delimiter=’,’)读取CSV文件，filepath为文件路径，delimiter用于加载文档分隔符。
 
@@ -34,11 +34,11 @@ classLables = classLables.ravel()   #ravel()对classLables进行降维，使其�
 
 2.函数def classify(X,dataMatIn,classlabels,k)用于对测试集数据进行分类
 
-![img](3.jpg)
+![img](图片/3.jpg)
 
 （1）      采用欧拉距离计算测试集单个样本与训练集每个样本间的距离
 
-![img](4.jpg)
+![img](图片/4.jpg)
 
 distances=(((dataMatIn-X)**2).sum(axis=1))**0.5
 
@@ -60,7 +60,7 @@ distances=(((dataMatIn-X)**2).sum(axis=1))**0.5
 
 ②(dataMatIn-X)**2  计算每个差值的二次幂，即：
 
-[(a1-xn)![img](file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg),(b1-yn)![img](file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)]  
+[(a1-xn)![img](图片/mi.jpg),(b1-yn)![img](图片/mi.jpg)]  
 
 ​        **.    .**
 
@@ -70,9 +70,9 @@ distances=(((dataMatIn-X)**2).sum(axis=1))**0.5
 
 ​        **.    .**
 
-[(an- xn)![img](file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg),(bn- yn)![img](file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)]
+[(an- xn)![img](图片/mi.jpg),(bn- yn)![img](图片/mi.jpg)]
 
-③((dataMatIn-X)**2).sum(axis=1))  ,      ().sum(axis=1)表示对括号内的数组按行求和,（axis=0为按列，axis=1为按行），即：[(a1-xn)![img](file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)+(b1-yn)![img](file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)，……，(an-xn)![img](file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)+(bn-yn)![img](file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)]
+③((dataMatIn-X)**2).sum(axis=1))  ,      ().sum(axis=1)表示对括号内的数组按行求和,（axis=0为按列，axis=1为按行），即：[(a1-xn)![img](图片/mi.jpg)+(b1-yn)![img](图片/mi.jpg)，……，(an-xn)![img](图片/mi.jpg)+(bn-yn)![img](图片/mi.jpg)]
 
 ④(((dataMatIn-X)**2).sum(axis=1))**0.5，（）**0.5是对括号内的数据求0.5次幂，即开平方。
 
@@ -88,7 +88,7 @@ sortedDistances=distances.argsort()
 
 设绿色为待分类的样本，设置近邻数为K：
 
-![img](5.jpg)
+![img](图片/5.jpg)
 
 如果K=3，绿色圆点的最近的3个邻居是2个红色小三角形和1个蓝色小正方形，少数从属于多数，基于统计的方法，判定绿色的这个待分类点属于红色的三角形一类。
 
@@ -126,7 +126,7 @@ sortedClass = sorted(classCounts, key=lambda x : x[1],reverse=True)
 
 \#sorted()函数对列表进行排序，第一个参数为要排序的列表，lambda辅助词按照列表的第二列的值进行排序，reverse默认值为False,表示从小到大排序，将reverse的值改为True，表示逆序排序，按照从大到小排序。
 
-③return sortedClass[0][0] 
+③return sortedClass[0] [0] 
 
 该函数返回排序后的类别的总个数值最大的类别作为该单个测试样本的预测类别。
 
@@ -192,4 +192,4 @@ f.close()
 
 
 
-![1570449150904](6.png)
+![1570449150904](图片/6.png)
